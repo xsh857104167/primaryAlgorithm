@@ -29,10 +29,20 @@ public class MoveZeroes {
 
     /**
      * 非零前移
+     * 0ms,100%;38.8MB,33.56%
      * @param nums
      */
     public void moveZeroes2(int[] nums){
-
+        int i=0;
+        for(int j=0; j<nums.length; ++j){
+            if (nums[j]!=0){
+                nums[i] = nums[j];
+                ++i;
+            }
+        }
+        for (int k = i; k < nums.length; k++) {
+            nums[k]=0;
+        }
     }
 
     @Test
