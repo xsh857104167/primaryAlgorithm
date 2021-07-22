@@ -2,7 +2,6 @@ package string;
 
 import org.junit.Test;
 
-import java.util.Locale;
 
 /**
  * @author Murphy Xu
