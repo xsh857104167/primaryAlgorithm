@@ -1,35 +1,37 @@
 package designIssue;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @author Murphy Xu
  * @create 2021-07-28 18:58
+ * 使用list。又问题懒得改了
  */
 public class MinStack {
     List<Integer> list;
     int min = Integer.MIN_VALUE;
-    boolean isTop;
     /** initialize your data structure here. */
     public MinStack() {
         list =  new LinkedList<>();
-        isTop = true;
     }
 
     public void push(int val) {
-        list.add(0, val);
-        if (val < min){
+        if (val <= min){
+            list.add(0, min);
             min = val;
-            isTop = true;
-        }else{
-            isTop = false;
         }
+        list.add(0, val);
     }
 
     public void pop() {
-        list.remove(0);
+        if (list.get(0) == min){
+            list.remove(0);
+            min = list.get(0);
+            list.remove(0);
+        }else {
+            list.remove(0);
+        }
     }
 
     public int top() {
@@ -37,7 +39,7 @@ public class MinStack {
     }
 
     public int getMin() {
-        return 0;
+        return min;
     }
 }
 /**
