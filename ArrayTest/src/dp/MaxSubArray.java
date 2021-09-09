@@ -91,7 +91,7 @@ public class MaxSubArray {
         int max = dp[0];
         for (int i = 1; i < length; i++) {
             // 转移公式
-            dp[i] = Math.max(dp[i], 0) + nums[i];
+            dp[i] = Math.max(dp[i-1], 0) + nums[i];
             max = Math.max(max, dp[i]);
         }
 
